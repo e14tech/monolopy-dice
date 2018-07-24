@@ -40,12 +40,13 @@ while True:
         if jail_count < 3:
             print("You rolled doubles! Play again!")
 
-        if jail_count == 3:
-            print("Go to jail!")
-            break
-
             if jail_count == 2:
                 print("If you roll doubles again, you'll go to jail!")
+
+        if jail_count == 3:
+            print("Go to jail!")
+            turn += 1
+            break
 
         input("Press ENTER or RETURN to continue.\n")
 
