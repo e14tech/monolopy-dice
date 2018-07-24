@@ -21,12 +21,12 @@ while True:
         if turn >= number_of_players:
             turn = 0
 
-        print("It's", player_name[turn], "\b's turn.")
-
         first_dice = randint(1, 6)
         second_dice = randint(1, 6)
 
-        print("\n" * 5)
+        print("\n" * 100)
+
+        print("It's", player_name[turn], "\b's turn.")
 
         print("First dice is:", first_dice)
         print("Second dice is:", second_dice)
@@ -47,8 +47,8 @@ while True:
             if jail_count == 2:
                 print("If you roll doubles again, you'll go to jail!")
 
-        input("Press ENTER or RETURN to continue.")
+        input("Press ENTER or RETURN to continue.\n")
 
     print("To play again, just press ENTER or RETURN")
-    if input("Press any key before ENTER or RETURN to quit") != "":
+    if input("Press any key before ENTER or RETURN to quit\n") != "":
         quit()
