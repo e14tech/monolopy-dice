@@ -7,6 +7,7 @@ class PlayerName:
         self.name = name
         self.double_count = double_count
         self.jail_count = jail_count
+        self.in_jail = in_jail
 
 player_name = []
 print("\n" * 100)
