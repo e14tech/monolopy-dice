@@ -3,7 +3,7 @@
 from random import randint
 
 class PlayerName:
-    def __init__(self, name, double_count, jail_count):
+    def __init__(self, name, double_count, jail_count, in_jail):
         self.name = name
         self.double_count = double_count
         self.jail_count = jail_count
@@ -14,7 +14,7 @@ number_of_players = int(input("How many players?\n"))
 
 for i in range(0, number_of_players):
     print("\nName for player", i + 1, "\b:")
-    player_name.append(PlayerName(str(input()), 0, 0))
+    player_name.append(PlayerName(str(input()), 0, 0, False))
 
 print("\n" * 100)
 
