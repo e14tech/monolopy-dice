@@ -4,7 +4,7 @@ from random import randint
 
 player_name = []
 
-class PlayerName:
+class Player:
     def __init__(self, name, double_count, jail_count, in_jail):
         self.name = name
         self.double_count = double_count
@@ -14,31 +14,33 @@ class PlayerName:
 def jail_dice_roll(player):
     print(player_name[player].name, "is in jail!")
 
-    if player_name[player].jail_count < 2:
-        first_dice = randint(1, 6)
-        second_dice = randint(1, 6)
+    player_name[player].jail_count += 1
 
-        print("First dice is:  ", first_dice)
-        print("Second dice is: ", second_dice)
+    first_dice = randint(1, 6)
+    second_dice = randint(1, 6)
 
-        if first_dice == second_dice:
-            print(player_name[player].name, "got out of jail!")
-            return False
+    print("First dice is:  ", first_dice)
+    print("Second dice is: ", second_dice)
 
-        else:
-            player_name[player].jail_count += 1
-            return True
+    if first_dice == second_dice:
+        print(player_name[player].name, "got out of jail!")
+        player_name[player].jail_count = 0
+        return False
+
+    if player_name[player].jail_count == 3:
+        print("You must pay $50 to get out now.")
+        player_name[player].jail_count = 0
+        return False
 
     else:
-        print("You must pay $50 to get out now.")
-        return False
+        return True
 
 print("\n" * 100)
 number_of_players = int(input("How many players?\n"))
 
 for i in range(0, number_of_players):
     print("\nName for player", i + 1, "\b:")
-    player_name.append(PlayerName(str(input()), 0, 0, False))
+    player_name.append(Player(str(input()), 0, 0, False))
 
 print("\n" * 100)
 
